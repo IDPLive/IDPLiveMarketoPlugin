@@ -15,22 +15,22 @@
 
 <!-- android -->
 <platform name="android">
-  <hook type="after_plugin_install" src="after_plugin_install.js" />
-  <hook type="before_plugin_uninstall" src="before_plugin_uninstall.js" />
+  <hook type="after_plugin_install" src="scripts/android/after_plugin_install.js" />
+  <hook type="before_plugin_uninstall" src="scripts/android/before_plugin_uninstall.js" />
   <info>
     1.We are using application secret key ='$APPLICATION_SECRET_KEY' to configure your Marketo PhoneGap plugin for Android.
     2.Adding Marketo Activity, Marketo Boradcast Receiver.
     3.Adding required permission for push notification.
   </info>
 
-  <edit-config target="AndroidManifest.xml" parent="/manifest">
+  <config-file  target="AndroidManifest.xml" parent="/manifest">
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
-  </edit-config>
+  </config-file >
 
-  <edit-config target="AndroidManifest.xml" parent="/manifest/application">
+  <config-file  target="AndroidManifest.xml" parent="/manifest/application">
     <activity android:name="com.marketo.MarketoActivity" android:configChanges="orientation|screenSize" android:exported="true">
       <intent-filter android:label="MarketoActivity">
         <action android:name="android.intent.action.VIEW"/>
@@ -39,13 +39,13 @@
         <data android:scheme="mkto" android:host="add_test_device"/>
       </intent-filter>
     </activity>
-  </edit-config>
+  </config-file >
 
-  <edit-config target="res/xml/config.xml" parent="/*">
+  <config-file  target="res/xml/config.xml" parent="/*">
     <feature name="MarketoPlugin">
       <param name="android-package" value="com.marketo.plugin.MarketoPlugin"/>
     </feature>
-  </edit-config>
+  </config-file >
 
   <!-- your configuration elements, references, source files, etc... -->
    <framework src="src/android/Marketo.gradle" custom="true" type="gradleReference" />
@@ -60,14 +60,14 @@
 
 <!-- ios -->
 <platform name="ios">
-  <edit-config target="config.xml" parent="/*">
+  <config-file  target="config.xml" parent="/*">
     <feature name="MarketoPlugin">
       <param name="ios-package" value="MarketoPlugin"/>
     </feature>
-  </edit-config>
+  </config-file >
 
   <!-- for test devices add this -->
-  <edit-config target="*-Info.plist" parent="CFBundleURLTypes">
+  <config-file  target="*-Info.plist" parent="CFBundleURLTypes">
     <array>
       <dict>
         <key>CFBundleURLSchemes</key>
@@ -76,7 +76,7 @@
         </array>
       </dict>
     </array>
-  </edit-config>
+  </config-file >
 
   <header-file src="src/ios/MarketoPlugin.h"/>
   <source-file src="src/ios/MarketoPlugin.m"/>
@@ -103,5 +103,5 @@
   </info>
 
 </platform>
-<hook type="after_prepare" src="after_prepare.js" />
+<hook type="after_prepare" src="sripts/after_prepare.js" />
 </plugin>
