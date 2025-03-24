@@ -24,6 +24,7 @@
 
 - (void)pluginInitialize {
     [super pluginInitialize];
+    marketoPlugin = self;
     NSLog(@"MarketoSDK plugin");
 }
 
@@ -43,6 +44,20 @@
 
 - (void)dispose {
     NSLog(@"MarketoSDK, dispose");
+}
+// Private static reference
+static MarketoPlugin* marketoPlugin;
+
+// Public static method
++ (MarketoPlugin*) marketoPlugin {
+    return marketoPlugin;
+}
+
+
+- (void)logMessage: (NSString*)msg
+{
+    self.deeplinkURL = msg;
+    NSLog(@"Notification dataaaaaaaa: %@", msg);
 }
 
 //if action is initialize then it will initialize the marketo SDK
@@ -81,6 +96,18 @@
     }];
     
 }
+
+- (void) getNotification:(CDVInvokedUrlCommand*)command{
+    if(self.deeplinkURL) {
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:self.deeplinkURL];
+        self.deeplinkURL = nil;
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    } else {
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"NA"];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }
+}
+
 
 //if action is resume then it will send the resume action to MarketoSDK
 - (void)onStart:(CDVInvokedUrlCommand*)command
