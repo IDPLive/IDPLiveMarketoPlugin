@@ -17,4 +17,10 @@
 - (void) isSecureModeEnabled:(CDVInvokedUrlCommand*)command;
 - (void) reportAll:(CDVInvokedUrlCommand*)command;
 - (void) uninitializeMarketoPush:(CDVInvokedUrlCommand*)command;
+// Public static method
++ (MarketoPlugin*) marketoPlugin;
+- (void)logMessage: (NSString*)msg;
+- (void) getNotification:(CDVInvokedUrlCommand*)command;
+@property(strong, nonatomic) NSString *deeplinkURL;
+
 @end
