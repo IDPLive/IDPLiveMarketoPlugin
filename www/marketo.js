@@ -64,12 +64,6 @@ cordova.define("com.marketo.plugin.MarketoPlugin", function(require, exports, mo
                 "MarketoPlugin",
                 "initializeMarketoPush", [project_id]);
         },
-        
-        getNotification: function (success, fail) {
-            return cordova.exec( success, fail,
-                "MarketoPlugin",
-                "getNotification", []);
-        },
     
         /**
          * Call this method when user wants to create a lead.
