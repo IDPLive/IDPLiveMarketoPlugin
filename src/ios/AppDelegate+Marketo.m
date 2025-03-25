@@ -59,19 +59,7 @@
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void(^)())completionHandler {
-    [MarketoPlugin.marketoPlugin logMessage:@"idpScheme://app.idp.com/home/my-apply/apply-navigate-to-progress-tracker-page-component"];
-    /*NSLog(@"Notification data: %@", response.notification.request.content.body);
-    NSString *dir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSError *error;
-    NSString *fullFilePath = [NSString stringWithFormat:@"%@/%@", dir, @"IDP Live/notification_file.txt"];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *theFileName = [fullFilePath lastPathComponent];
-    NSArray *onlyPath = [fullFilePath componentsSeparatedByString:theFileName];
-    if(![fileManager fileExistsAtPath:[onlyPath objectAtIndex:0]]) {
-        [fileManager createDirectoryAtPath:[onlyPath objectAtIndex:0] withIntermediateDirectories:YES attributes:nil error:&error];
-    }
-    NSData *data = [@"idpScheme://app.idp.com/home/my-apply/apply-navigate-to-progress-tracker-page-component" dataUsingEncoding:NSUTF8StringEncoding];
-    [data writeToFile:fullFilePath atomically:true];*/
+   
     [[Marketo sharedInstance] userNotificationCenter:center didReceiveNotificationResponse:response withCompletionHandler:completionHandler];
 //    completionHandler();
 }
