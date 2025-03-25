@@ -1,4 +1,4 @@
-cordova.define("com.marketo.plugin.MarketoPlugin", function(require, exports, module) {
+
     /*
      * Licensed to the Apache Software Foundation (ASF) under one
      * or more contributor license agreements.  See the NOTICE file
@@ -63,6 +63,12 @@ cordova.define("com.marketo.plugin.MarketoPlugin", function(require, exports, mo
             return cordova.exec( success, fail,
                 "MarketoPlugin",
                 "initializeMarketoPush", [project_id]);
+        },
+        
+        getNotification: function (success, fail) {
+            return cordova.exec( success, fail,
+                "MarketoPlugin",
+                "getNotification", []);
         },
     
         /**
@@ -224,4 +230,5 @@ cordova.define("com.marketo.plugin.MarketoPlugin", function(require, exports, mo
     }
     module.exports = marketo;
     
-    });
+  
+    
