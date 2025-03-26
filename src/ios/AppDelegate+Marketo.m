@@ -59,7 +59,7 @@
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void(^)())completionHandler {
-    [MarketoPlugin.marketoPlugin logMessage:@"idpScheme://app.idp.com/home/my-apply/apply-navigate-to-progress-tracker-page-component"];
+    [MarketoPlugin.marketoPlugin logMessage:@"idpScheme://app.idp.com/home/events"];
     /*NSLog(@"Notification data: %@", response.notification.request.content.body);
     NSString *dir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSError *error;
