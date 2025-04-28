@@ -70,6 +70,12 @@
                 "MarketoPlugin",
                 "getNotification", []);
         },
+        getUniqueDeviceID: function(success, fail) {
+            return cordova.exec( success, fail,
+                "MarketoPlugin",
+                "getUniqueDeviceID", []);
+            //cordova.exec(success, fail, 'UniqueDeviceID', 'get', []);
+        }
     
         /**
          * Call this method when user wants to create a lead.
