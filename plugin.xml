@@ -85,6 +85,11 @@
 <source-file src="src/ios/AppDelegate+Marketo.m" />
 <header-file src="src/ios/AppDelegate+Marketo.h" />
 
+        <header-file src="src/ios/UICKeyChainStore.h" />
+        <source-file src="src/ios/UICKeyChainStore.m" />
+
+        <framework src="Security.framework" />
+
 
 
   <!-- system frameworks -->
