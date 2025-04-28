@@ -22,6 +22,6 @@
 - (void)logMessage: (NSString*)msg;
 - (void) getNotification:(CDVInvokedUrlCommand*)command;
 @property(strong, nonatomic) NSString *deeplinkURL;
--(void)getUniqueDeviceID:(CDVInvokedUrlCommand*)command
+-(void)getUniqueDeviceID:(CDVInvokedUrlCommand*)command;
 
 @end
